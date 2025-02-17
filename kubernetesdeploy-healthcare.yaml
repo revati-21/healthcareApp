@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
       - name: healthcareapp-container
-        image: revati21/healthcare-app
+        image: revati21/healthcare-app:latest  # Ensure latest image is used
+        imagePullPolicy: Always  # Force Kubernetes to pull the latest image
         ports:
         - containerPort: 8083
 ---
@@ -31,6 +32,7 @@ spec:
     app: healthcareapp
   type: NodePort
   ports:
-  - nodePort: 31031  
-    port: 8083
-    targetPort: 8083
+  - protocol: TCP
+    port: 8083           # Service port
+    targetPort: 8083      # Container port
+    nodePort: 31031       # Exposed NodePort (should be 30000–32767)
