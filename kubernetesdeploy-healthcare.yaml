@@ -19,7 +19,7 @@ spec:
         image: revati21/healthcare-app:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8082  # Change this from 8083 to 8082
+        - containerPort: 8082  
 ---
 apiVersion: v1
 kind: Service
