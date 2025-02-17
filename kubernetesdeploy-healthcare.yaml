@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: healthcareapp-container
-        image: revati21/healthcare-app:latest  
-        imagePullPolicy: Always  
+        image: revati21/healthcare-app:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8083
+        - containerPort: 8082  # Change this from 8083 to 8082
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +33,6 @@ spec:
   type: NodePort
   ports:
   - protocol: TCP
-    port: 8083           
-    targetPort: 8083     
-    nodePort: 31031       
+    port: 8082           
+    targetPort: 8082      
+    nodePort: 31031
